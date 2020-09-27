@@ -1,3 +1,6 @@
+# https://www.codewars.com/kata/5e0b72d2d772160011133654
+
+
 # You are given three piles of casino chips: white, green and black chips:
 
 # the first pile contains only white chips
@@ -9,3 +12,9 @@
 # You will be given an array representing the number of chips of each color and 
 
 # your task is to return the maximum number of days you can pick the chips. Each day you need to take exactly two chips.
+
+
+def solve(arr):
+    a,b,c = sorted(arr)
+    if c > (a+b): return (a+b)
+    else: return sum(arr)//2
