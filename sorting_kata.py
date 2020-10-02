@@ -1,18 +1,20 @@
 def leaderboard_sort(leaderboard, changes):
     lb = leaderboard.copy()
     for x in changes:
-        holder = x.split(' ')
-        target = holder[0]
-        mv = holder[1]
-        moves = int(mv[-1])
-        direction = mv[0]
-        for i in range(moves):
-            t = lb.index(target)
-            if direction == "+":
-                lb[t-1], lb[t] = lb[t], lb[t-1]
-            if direction == "-":
-                lb[t], lb[t+1] = lb[t+1], lb[t]
-
+        if " " in x:
+            holder = x.split(' ')
+            target = holder[0]
+            mv = holder[1]
+            moves = int(mv[-1])
+            direction = mv[0]
+            for i in range(moves):
+                t = lb.index(target)
+                if direction == "+":
+                    lb[t-1], lb[t] = lb[t], lb[t-1]
+                if direction == "-":
+                    lb[t], lb[t+1] = lb[t+1], lb[t]
+        else: 
+            pass
     return lb
 
         
@@ -26,4 +28,4 @@ def leaderboard_sort(leaderboard, changes):
 
 
 
-leaderboard_sort(['John', 'Brian', 'Jim', 'Dave', 'Fred'], ['Dave +1', 'Fred +4', 'Brian -1'])
+leaderboard_sort(['John', 'Brian', 'Jim', 'Dave', 'Fred'], ['Dave +2', 'Fred +4', 'Brian -1'])
